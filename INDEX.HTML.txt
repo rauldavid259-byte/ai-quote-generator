@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Quote Generator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+            background: #f4f4f4;
+        }
+        input {
+            padding: 10px;
+            width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            background: white;
+            padding: 15px;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1>AI Quote & Caption Generator</h1>
+
+<input type="text" id="topic" placeholder="Enter a topic..." />
+<br>
+<button onclick="generateQuote()">Generate</button>
+
+<div id="output">Result will appear here...</div>
+
+<script>
+const sampleQuotes = [
+    "Believe in yourself and all that you are.",
+    "Every day is a new opportunity to shine.",
+    "Dream big and dare to fail.",
+    "Your potential is endless.",
+    "Keep going, no matter what."
+];
+
+function generateQuote() {
+    let topic = document.getElementById("topic").value.trim();
+
+    if (topic === "") {
+        alert("Enter a topic!");
+        return;
+    }
+
+    // Pick a random quote from the array
+    const randomIndex = Math.floor(Math.random() * sampleQuotes.length);
+    const quote = `"${sampleQuotes[randomIndex]}" — about ${topic}`;
+
+    document.getElementById("output").innerText = quote;
+}
+</script>
+
+</body>
+</html>
